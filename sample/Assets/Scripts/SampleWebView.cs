@@ -39,6 +39,7 @@ public class SampleWebView : MonoBehaviour
             {
                 Debug.Log(string.Format("CallFromJS[{0}]", msg));
                 status.text = msg;
+                Debug.Log("Haa maa chuda le");
                 status.GetComponent<Animation>().Play();
             },
             err: (msg) =>
