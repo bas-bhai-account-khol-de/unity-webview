@@ -37,9 +37,9 @@ public class SampleWebView : MonoBehaviour
         webViewObject.Init(
             cb: (msg) =>
             {
-                Debug.Log(string.Format("CallFromJS[{0}]", msg));
+                Debug.Log(string.Format("CallFromJS is real[{0}]", msg));
                 status.text = msg;
-                Debug.Log("Haa maa chuda le");
+                // Debug.Log("Haa maa chuda le")
                 status.GetComponent<Animation>().Play();
             },
             err: (msg) =>
@@ -218,7 +218,11 @@ public class SampleWebView : MonoBehaviour
         x += 90;
 
         if (GUI.Button(new Rect(x, 10, 80, 80), "r")) {
-            webViewObject.Reload();
+            // webViewObject.Reload();
+            webViewObject.EvaluateJS(@"
+            localStorage.setItem('a','bas bhai chal ja')
+            window.recieve('kaise ho');
+            ");
         }
         x += 90;
 
